@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ObjectMapperEuvic'
-  s.version = '2.2.9'
+  s.version = '2.2.8'
   s.license = 'MIT'
   s.summary = 'JSON Object mapping written in Swift with changed Operator'
   s.homepage = 'https://github.com/TomKaminski/ObjectMapper'
