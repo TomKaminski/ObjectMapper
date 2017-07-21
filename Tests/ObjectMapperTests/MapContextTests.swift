@@ -262,7 +262,7 @@ class MapContextTests: XCTestCase {
 		
 		func mapping(map: Map) {
 			if (map.context as? Context)?.shouldMap == true {
-				name <- map["name"]
+				name <-- map["name"]
 			}
 		}
 	}
@@ -276,7 +276,7 @@ class MapContextTests: XCTestCase {
 		
 		func mapping(map: Map) {
 			if (map.context as? Context)?.shouldMap == true {
-				person <- map["person"]
+				person <-- map["person"]
 			}
 		}
 	}
@@ -290,7 +290,7 @@ class MapContextTests: XCTestCase {
 		
 		func mapping(map: Map) {
 			if (map.context as? Context)?.shouldMap == true {
-				persons <- map["persons"]
+				persons <-- map["persons"]
 			}
 		}
 	}

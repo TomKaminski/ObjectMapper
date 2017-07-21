@@ -141,9 +141,9 @@ class ToObjectTests: XCTestCase {
 		}
 		
 		func mapping(map: Map) {
-			name		<- map["name"]
-			spouse		<- map["spouse"]
-			children	<- map["children"]
+			name		<-- map["name"]
+			spouse		<-- map["spouse"]
+			children	<-- map["children"]
 		}
 	}
 	
@@ -160,7 +160,7 @@ class ToObjectTests: XCTestCase {
 		}
 		
 		func mapping(map: Map) {
-			username	<- map["username"]
+			username	<-- map["username"]
 		}
 	}
 	
@@ -176,7 +176,7 @@ class ToObjectTests: XCTestCase {
 		}
 		
 		mutating func mapping(map: Map) {
-			name <- map["name"]
+			name <-- map["name"]
 		}
 	}
 	
@@ -192,7 +192,7 @@ class ToObjectTests: XCTestCase {
 		}
 		
 		mutating func mapping(map: Map) {
-			info <- map["info"]
+			info <-- map["info"]
 		}
 	}
 	

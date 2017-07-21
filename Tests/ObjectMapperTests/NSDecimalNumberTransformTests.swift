@@ -76,11 +76,11 @@ class NSDecimalNumberType: Mappable {
     }
 
     func mapping(map: Map) {
-        int <- (map["int"], NSDecimalNumberTransform())
-        double <- (map["double"], NSDecimalNumberTransform())
-        decimal <- (map["decimal"], NSDecimalNumberTransform())
-        intString <- (map["intString"], NSDecimalNumberTransform())
-        doubleString <- (map["doubleString"], NSDecimalNumberTransform())
-        decimalString <- (map["decimalString"], NSDecimalNumberTransform())
+        int <-- (map["int"], NSDecimalNumberTransform())
+        double <-- (map["double"], NSDecimalNumberTransform())
+        decimal <-- (map["decimal"], NSDecimalNumberTransform())
+        intString <-- (map["intString"], NSDecimalNumberTransform())
+        doubleString <-- (map["doubleString"], NSDecimalNumberTransform())
+        decimalString <-- (map["decimalString"], NSDecimalNumberTransform())
     }
 }

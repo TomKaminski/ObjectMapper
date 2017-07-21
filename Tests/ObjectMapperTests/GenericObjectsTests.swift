@@ -118,7 +118,7 @@ class Base: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		base <- map["base"]
+		base <-- map["base"]
 	}
 }
 
@@ -137,7 +137,7 @@ class Subclass: Base {
 	override func mapping(map: Map) {
 		super.mapping(map: map)
 		
-		sub <- map["sub"]
+		sub <-- map["sub"]
 	}
 }
 
@@ -157,7 +157,7 @@ class GenericSubclass<T>: Base {
 	override func mapping(map: Map) {
 		super.mapping(map: map)
 		
-		sub <- map["sub"]
+		sub <-- map["sub"]
 	}
 }
 
@@ -169,7 +169,7 @@ class WithGenericArray<T: Mappable>: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		genericItems <- map["genericItems"]
+		genericItems <-- map["genericItems"]
 	}
 }
 
@@ -181,7 +181,7 @@ class ConcreteItem: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		value <- map["value"]
+		value <-- map["value"]
 	}
 }
 
@@ -199,6 +199,6 @@ class Response<T: Mappable>: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		result <- map["result"]
+		result <-- map["result"]
 	}
 }

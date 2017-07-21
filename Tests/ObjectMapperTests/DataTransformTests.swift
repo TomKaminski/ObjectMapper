@@ -65,7 +65,7 @@ class DataType: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		stringData <- map["data"]
-		data <- (map["data"], DataTransform())
+		stringData <-- map["data"]
+		data <-- (map["data"], DataTransform())
 	}
 }

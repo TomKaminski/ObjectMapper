@@ -319,7 +319,7 @@ class ImmutableObjectTests: XCTestCase {
 			var immutable: ImmutableObject!
 			init?(map: Map) {}
 			mutating func mapping(map: Map) {
-				self.immutable <- map["immutable"]
+				self.immutable <-- map["immutable"]
 			}
 		}
 
@@ -484,10 +484,10 @@ extension Struct: ImmutableMappable {
 	}
 
 	mutating func mapping(map: Map) {
-		prop23 <- map["prop23"]
-		prop24 <- map["prop24"]
-		prop25 <- map["prop25"]
-		prop26 <- map["prop26"]
+		prop23 <-- map["prop23"]
+		prop24 <-- map["prop24"]
+		prop25 <-- map["prop25"]
+		prop26 <-- map["prop26"]
 		
 		prop1 >>> map["prop1"]
 		prop2 >>> map["prop2"]

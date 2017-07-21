@@ -35,7 +35,7 @@ To support mapping, a class or struct just needs to implement the ```Mappable```
 init?(map: Map)
 mutating func mapping(map: Map)
 ```
-ObjectMapper uses the ```<-``` operator to define how each member variable maps to and from JSON.
+ObjectMapper uses the ```<--``` operator to define how each member variable maps to and from JSON.
 
 ```swift
 class User: Mappable {
@@ -54,14 +54,14 @@ class User: Mappable {
 
     // Mappable
     func mapping(map: Map) {
-        username    <- map["username"]
-        age         <- map["age"]
-        weight      <- map["weight"]
-        array       <- map["arr"]
-        dictionary  <- map["dict"]
-        bestFriend  <- map["best_friend"]
-        friends     <- map["friends"]
-        birthday    <- (map["birthday"], DateTransform())
+        username    <-- map["username"]
+        age         <-- map["age"]
+        weight      <-- map["weight"]
+        array       <-- map["arr"]
+        dictionary  <-- map["dict"]
+        bestFriend  <-- map["best_friend"]
+        friends     <-- map["friends"]
+        birthday    <-- (map["birthday"], DateTransform())
     }
 }
 
@@ -74,8 +74,8 @@ struct Temperature: Mappable {
     }
 
     mutating func mapping(map: Map) {
-        celsius 	<- map["celsius"]
-        fahrenheit 	<- map["fahrenheit"]
+        celsius 	<-- map["celsius"]
+        fahrenheit 	<-- map["fahrenheit"]
     }
 }
 ```
@@ -191,8 +191,8 @@ init(map: Map) <strong>throws</strong> {
     <td>
 <pre>
 mutating func mapping(map: Map) {
-  id   <- map["id"]
-  name <- map["name"]
+  id   <-- map["id"]
+  name <-- map["name"]
 }
 </pre>
     </td>
@@ -212,8 +212,8 @@ mutating func mapping(map: Map) {
     <td>
 <pre>
 mutating func mapping(map: Map) {
-  id   <- map["id"]
-  name <- map["name"]
+  id   <-- map["id"]
+  name <-- map["name"]
 }
 </pre>
     </td>
@@ -256,7 +256,7 @@ init(map: Map) throws {
 
 #### `mutating func mapping(map: Map)`
 
-This method is where the reverse transform is performed (Model to JSON). Since immutable properties can not be mapped with the `<-` operator, developers have to define the reverse transform using the `>>>` operator.
+This method is where the reverse transform is performed (Model to JSON). Since immutable properties can not be mapped with the `<--` operator, developers have to define the reverse transform using the `>>>` operator.
 
 ```swift
 mutating func mapping(map: Map) {
@@ -279,30 +279,30 @@ ObjectMapper supports dot notation within keys for easy mapping of nested object
 You can access the nested objects as follows:
 ```swift
 func mapping(map: Map) {
-    distance <- map["distance.value"]
+    distance <-- map["distance.value"]
 }
 ```
 Nested keys also support accessing values from an array. Given a JSON response with an array of distances, the value could be accessed as follows:
 ```
-distance <- map["distances.0.value"]
+distance <-- map["distances.0.value"]
 ```
 If you have a key that contains `.`, you can individually disable the above feature as follows:
 ```swift
 func mapping(map: Map) {
-    identifier <- map["app.identifier", nested: false]
+    identifier <-- map["app.identifier", nested: false]
 }
 ```
 When you have nested keys which contain `.`, you can pass the custom nested key delimiter as follows ([#629](https://github.com/Hearst-DD/ObjectMapper/pull/629)):
 ```swift
 func mapping(map: Map) {
-    appName <- map["com.myapp.info->com.myapp.name", delimiter: "->"]
+    appName <-- map["com.myapp.info->com.myapp.name", delimiter: "->"]
 }
 ```
 
 # Custom Transforms
-ObjectMapper also supports custom transforms that convert values during the mapping process. To use a transform, simply create a tuple with ```map["field_name"]``` and the transform of your choice on the right side of the ```<-``` operator:
+ObjectMapper also supports custom transforms that convert values during the mapping process. To use a transform, simply create a tuple with ```map["field_name"]``` and the transform of your choice on the right side of the ```<--``` operator:
 ```swift
-birthday <- (map["birthday"], DateTransform())
+birthday <-- (map["birthday"], DateTransform())
 ```
 The above transform will convert the JSON Int value to an Date when reading JSON and will convert the Date to an Int when converting objects to JSON.
 
@@ -333,11 +333,11 @@ let transform = TransformOf<Int, String>(fromJSON: { (value: String?) -> Int? in
     return nil
 })
 
-id <- (map["id"], transform)
+id <-- (map["id"], transform)
 ```
 Here is a more condensed version of the above:
 ```swift
-id <- (map["id"], TransformOf<Int, String>(fromJSON: { Int($0!) }, toJSON: { $0.map { String($0) } }))
+id <-- (map["id"], TransformOf<Int, String>(fromJSON: { Int($0!) }, toJSON: { $0.map { String($0) } }))
 ```
 
 # Subclasses
@@ -353,7 +353,7 @@ class Base: Mappable {
 	}
 
 	func mapping(map: Map) {
-		base <- map["base"]
+		base <-- map["base"]
 	}
 }
 
@@ -367,7 +367,7 @@ class Subclass: Base {
 	override func mapping(map: Map) {
 		super.mapping(map)
 		
-		sub <- map["sub"]
+		sub <-- map["sub"]
 	}
 }
 ```
@@ -386,7 +386,7 @@ class Result<T: Mappable>: Mappable {
     }
 
     func mapping(map: Map) {
-        result <- map["result"]
+        result <-- map["result"]
     }
 }
 
@@ -439,14 +439,14 @@ class Model: Object, Mappable {
 	}
 
 	func mapping(map: Map) {
-		name <- map["name"]
+		name <-- map["name"]
 	}
 }
 ```
 
 If you want to serialize associated RealmObjects, you can use [ObjectMapper+Realm](https://github.com/jakenberg/ObjectMapper-Realm). It is a simple Realm extension that serializes arbitrary JSON into Realm's List class.
 
-Note: Generating a JSON string of a Realm Object using ObjectMappers' `toJSON` function only works within a Realm write transaction. This is caused because ObjectMapper uses the `inout` flag in its mapping functions (`<-`) which are used both for serializing and deserializing. Realm detects the flag and forces the `toJSON` function to be called within a write block even though the objects are not being modified.
+Note: Generating a JSON string of a Realm Object using ObjectMappers' `toJSON` function only works within a Realm write transaction. This is caused because ObjectMapper uses the `inout` flag in its mapping functions (`<--`) which are used both for serializing and deserializing. Realm detects the flag and forces the `toJSON` function to be called within a write block even though the objects are not being modified.
 
 # Projects Using ObjectMapper
 - [Xcode Plugin for generating `Mappable` and `ImmutableMappable` code](https://github.com/liyanhuadev/ObjectMapper-Plugin)

@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Signed Integer
 
 /// SignedInteger mapping
-public func <- <T: SignedInteger>(left: inout T, right: Map) {
+public func <-- <T: SignedInteger>(left: inout T, right: Map) {
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T = toSignedInteger(right.currentValue) ?? 0
@@ -23,7 +23,7 @@ public func <- <T: SignedInteger>(left: inout T, right: Map) {
 }
 
 /// Optional SignedInteger mapping
-public func <- <T: SignedInteger>(left: inout T?, right: Map) {
+public func <-- <T: SignedInteger>(left: inout T?, right: Map) {
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T? = toSignedInteger(right.currentValue)
@@ -35,7 +35,7 @@ public func <- <T: SignedInteger>(left: inout T?, right: Map) {
 }
 
 /// ImplicitlyUnwrappedOptional SignedInteger mapping
-public func <- <T: SignedInteger>(left: inout T!, right: Map) {
+public func <-- <T: SignedInteger>(left: inout T!, right: Map) {
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T! = toSignedInteger(right.currentValue)
@@ -50,7 +50,7 @@ public func <- <T: SignedInteger>(left: inout T!, right: Map) {
 // MARK: - Unsigned Integer
 
 /// UnsignedInteger mapping
-public func <- <T: UnsignedInteger>(left: inout T, right: Map) {
+public func <-- <T: UnsignedInteger>(left: inout T, right: Map) {
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T = toUnsignedInteger(right.currentValue) ?? 0
@@ -63,7 +63,7 @@ public func <- <T: UnsignedInteger>(left: inout T, right: Map) {
 
 
 /// Optional UnsignedInteger mapping
-public func <- <T: UnsignedInteger>(left: inout T?, right: Map) {
+public func <-- <T: UnsignedInteger>(left: inout T?, right: Map) {
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T? = toUnsignedInteger(right.currentValue)
@@ -75,7 +75,7 @@ public func <- <T: UnsignedInteger>(left: inout T?, right: Map) {
 }
 
 /// ImplicitlyUnwrappedOptional UnsignedInteger mapping
-public func <- <T: UnsignedInteger>(left: inout T!, right: Map) {
+public func <-- <T: UnsignedInteger>(left: inout T!, right: Map) {
 	switch right.mappingType {
 	case .fromJSON where right.isKeyPresent:
 		let value: T! = toUnsignedInteger(right.currentValue)

@@ -101,7 +101,7 @@ class Vehicle: StaticMappable {
 	}
 	
 	func mapping(map: Map) {
-		type <- map["type"]
+		type <-- map["type"]
 	}
 }
 
@@ -116,7 +116,7 @@ class Car: Vehicle {
 	override func mapping(map: Map) {
 		super.mapping(map: map)
 		
-		name <- map["name"]
+		name <-- map["name"]
 	}
 }
 

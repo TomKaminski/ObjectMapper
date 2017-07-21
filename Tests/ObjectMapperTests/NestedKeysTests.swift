@@ -287,75 +287,75 @@ class NestedKeys: Mappable {
 	}
 
 	func mapping(map: Map) {
-		nonNestedString <- map["non.nested.key", nested: false]
+		nonNestedString <-- map["non.nested.key", nested: false]
 		
-		int64	<- map["nested.int64"]
-		bool	<- map["nested.bool"]
-		int		<- map["nested.int"]
-		double	<- map["nested.double"]
-		float	<- map["nested.float"]
-		string	<- map["nested.string"]
+		int64	<-- map["nested.int64"]
+		bool	<-- map["nested.bool"]
+		int		<-- map["nested.int"]
+		double	<-- map["nested.double"]
+		float	<-- map["nested.float"]
+		string	<-- map["nested.string"]
 
-		int64Array	<- map["nested.nested.int64Array"]
-		boolArray	<- map["nested.nested.boolArray"]
-		intArray	<- map["nested.nested.intArray"]
-		doubleArray	<- map["nested.nested.doubleArray"]
-		floatArray	<- map["nested.nested.floatArray"]
-		stringArray	<- map["nested.nested.stringArray"]
+		int64Array	<-- map["nested.nested.int64Array"]
+		boolArray	<-- map["nested.nested.boolArray"]
+		intArray	<-- map["nested.nested.intArray"]
+		doubleArray	<-- map["nested.nested.doubleArray"]
+		floatArray	<-- map["nested.nested.floatArray"]
+		stringArray	<-- map["nested.nested.stringArray"]
 
-		int64Dict	<- map["nested.nested.int64Dict"]
-		boolDict	<- map["nested.nested.boolDict"]
-		intDict		<- map["nested.nested.intDict"]
-		doubleDict	<- map["nested.nested.doubleDict"]
-		floatDict	<- map["nested.nested.floatDict"]
-		stringDict	<- map["nested.nested.stringDict"]
+		int64Dict	<-- map["nested.nested.int64Dict"]
+		boolDict	<-- map["nested.nested.boolDict"]
+		intDict		<-- map["nested.nested.intDict"]
+		doubleDict	<-- map["nested.nested.doubleDict"]
+		floatDict	<-- map["nested.nested.floatDict"]
+		stringDict	<-- map["nested.nested.stringDict"]
 
-		int64Enum	<- map["nested.nested.int64Enum"]
-		intEnum		<- map["nested.nested.intEnum"]
-		doubleEnum	<- map["nested.nested.doubleEnum"]
-		floatEnum	<- map["nested.nested.floatEnum"]
-		stringEnum	<- map["nested.nested.stringEnum"]
+		int64Enum	<-- map["nested.nested.int64Enum"]
+		intEnum		<-- map["nested.nested.intEnum"]
+		doubleEnum	<-- map["nested.nested.doubleEnum"]
+		floatEnum	<-- map["nested.nested.floatEnum"]
+		stringEnum	<-- map["nested.nested.stringEnum"]
 
-		object		<- map["nested.nested.nested.object"]
-		objectArray	<- map["nested.nested.nested.objectArray"]
-		objectDict	<- map["nested.nested.nested.objectDict"]
+		object		<-- map["nested.nested.nested.object"]
+		objectArray	<-- map["nested.nested.nested.objectArray"]
+		objectDict	<-- map["nested.nested.nested.objectDict"]
 	}
 }
 
 class DelimiterNestedKeys: NestedKeys {
 	override func mapping(map: Map) {
-		nonNestedString <- map["non.nested->key", nested: false, delimiter: "->"]
+		nonNestedString <-- map["non.nested->key", nested: false, delimiter: "->"]
 
-		int64   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.int64", delimiter: "->"]
-		bool    <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.bool", delimiter: "->"]
-		int     <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.int", delimiter: "->"]
-		double  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.double", delimiter: "->"]
-		float   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.float", delimiter: "->"]
-		string  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.string", delimiter: "->"]
+		int64   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.int64", delimiter: "->"]
+		bool    <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.bool", delimiter: "->"]
+		int     <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.int", delimiter: "->"]
+		double  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.double", delimiter: "->"]
+		float   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.float", delimiter: "->"]
+		string  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.string", delimiter: "->"]
 
-		int64Array  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->int64Array", delimiter: "->"]
-		boolArray   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->boolArray", delimiter: "->"]
-		intArray    <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->intArray", delimiter: "->"]
-		doubleArray <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->doubleArray", delimiter: "->"]
-		floatArray  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->floatArray", delimiter: "->"]
-		stringArray <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->stringArray", delimiter: "->"]
+		int64Array  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->int64Array", delimiter: "->"]
+		boolArray   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->boolArray", delimiter: "->"]
+		intArray    <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->intArray", delimiter: "->"]
+		doubleArray <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->doubleArray", delimiter: "->"]
+		floatArray  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->floatArray", delimiter: "->"]
+		stringArray <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->stringArray", delimiter: "->"]
 
-		int64Dict   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->int64Dict", delimiter: "->"]
-		boolDict    <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->boolDict", delimiter: "->"]
-		intDict     <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->intDict", delimiter: "->"]
-		doubleDict  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->doubleDict", delimiter: "->"]
-		floatDict   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->floatDict", delimiter: "->"]
-		stringDict  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->stringDict", delimiter: "->"]
+		int64Dict   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->int64Dict", delimiter: "->"]
+		boolDict    <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->boolDict", delimiter: "->"]
+		intDict     <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->intDict", delimiter: "->"]
+		doubleDict  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->doubleDict", delimiter: "->"]
+		floatDict   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->floatDict", delimiter: "->"]
+		stringDict  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->stringDict", delimiter: "->"]
 
-		int64Enum   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->int64Enum", delimiter: "->"]
-		intEnum     <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->intEnum", delimiter: "->"]
-		doubleEnum  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->doubleEnum", delimiter: "->"]
-		floatEnum   <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->floatEnum", delimiter: "->"]
-		stringEnum  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->stringEnum", delimiter: "->"]
+		int64Enum   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->int64Enum", delimiter: "->"]
+		intEnum     <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->intEnum", delimiter: "->"]
+		doubleEnum  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->doubleEnum", delimiter: "->"]
+		floatEnum   <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->floatEnum", delimiter: "->"]
+		stringEnum  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->stringEnum", delimiter: "->"]
 
-		object      <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->object", delimiter: "->"]
-		objectArray <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->objectArray", delimiter: "->"]
-		objectDict  <- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->objectDict", delimiter: "->"]
+		object      <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->object", delimiter: "->"]
+		objectArray <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->objectArray", delimiter: "->"]
+		objectDict  <-- map["com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->com.hearst.ObjectMapper.nested->objectDict", delimiter: "->"]
 	}
 }
 
@@ -367,7 +367,7 @@ class Object: Mappable, Equatable {
 	}
 	
 	func mapping(map: Map) {
-		value <- map["value"]
+		value <-- map["value"]
 	}
 }
 

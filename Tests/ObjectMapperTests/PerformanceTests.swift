@@ -93,15 +93,15 @@ class PerformanceMappableObject: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		string		<- map["string"]
-		int			<- map["int"]
-		double		<- map["double"]
-		float		<- map["float"]
-		bool		<- map["bool"]
-		array		<- map["array"]
-		dictionary	<- map["dictionary"]
-		object		<- map["object"]
-		objects		<- map["objects"]
+		string		<-- map["string"]
+		int			<-- map["int"]
+		double		<-- map["double"]
+		float		<-- map["float"]
+		bool		<-- map["bool"]
+		array		<-- map["array"]
+		dictionary	<-- map["dictionary"]
+		object		<-- map["object"]
+		objects		<-- map["objects"]
 	}
 }
 
@@ -122,15 +122,15 @@ class PerformanceStaticMappableObject: StaticMappable {
 	}
 	
 	func mapping(map: Map) {
-		string		<- map["string"]
-		int			<- map["int"]
-		double		<- map["double"]
-		float		<- map["float"]
-		bool		<- map["bool"]
-		array		<- map["array"]
-		dictionary	<- map["dictionary"]
-		object		<- map["object"]
-		objects		<- map["objects"]
+		string		<-- map["string"]
+		int			<-- map["int"]
+		double		<-- map["double"]
+		float		<-- map["float"]
+		bool		<-- map["bool"]
+		array		<-- map["array"]
+		dictionary	<-- map["dictionary"]
+		object		<-- map["object"]
+		objects		<-- map["objects"]
 	}
 }
 

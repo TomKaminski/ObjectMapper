@@ -273,28 +273,28 @@ class MappableTypesWithTransformsTests: XCTestCase {
 		required init?(map: Map) {}
 		
 		func mapping(map: Map) {
-			players		<- (map["players"], RelationshipTransform<Player>())		// 2D Array with transform
-			team1Lineup	<- (map["team1_lineup"], RelationshipTransform<Player>())	// Dictionary with transform
-			team2Lineup	<- (map["team1_lineup"], RelationshipTransform<Player>())
-			headToHead	<- (map["head_to_head"], RelationshipTransform<Player>())	// Dictionary of arrays with transform
-			teams		<- (map["teams"], RelationshipTransform<Team>())			// Set with transform
-			winner		<- (map["winning_team_url"], RelationshipTransform<Team>())	// Single instance with transform
+			players		<-- (map["players"], RelationshipTransform<Player>())		// 2D Array with transform
+			team1Lineup	<-- (map["team1_lineup"], RelationshipTransform<Player>())	// Dictionary with transform
+			team2Lineup	<-- (map["team1_lineup"], RelationshipTransform<Player>())
+			headToHead	<-- (map["head_to_head"], RelationshipTransform<Player>())	// Dictionary of arrays with transform
+			teams		<-- (map["teams"], RelationshipTransform<Team>())			// Set with transform
+			winner		<-- (map["winning_team_url"], RelationshipTransform<Team>())	// Single instance with transform
 
 			// Optional
-			O_players		<- (map["players"], RelationshipTransform<Player>())
-			O_team1Lineup	<- (map["team1_lineup"], RelationshipTransform<Player>())
-			O_team2Lineup	<- (map["team1_lineup"], RelationshipTransform<Player>())
-			O_headToHead	<- (map["head_to_head"], RelationshipTransform<Player>())
-			O_teams			<- (map["teams"], RelationshipTransform<Team>())
-			O_winner		<- (map["winning_team_url"], RelationshipTransform<Team>())
+			O_players		<-- (map["players"], RelationshipTransform<Player>())
+			O_team1Lineup	<-- (map["team1_lineup"], RelationshipTransform<Player>())
+			O_team2Lineup	<-- (map["team1_lineup"], RelationshipTransform<Player>())
+			O_headToHead	<-- (map["head_to_head"], RelationshipTransform<Player>())
+			O_teams			<-- (map["teams"], RelationshipTransform<Team>())
+			O_winner		<-- (map["winning_team_url"], RelationshipTransform<Team>())
 			
 			// Implicitly Unwrapped
-			I_players		<- (map["players"], RelationshipTransform<Player>())
-			I_team1Lineup	<- (map["team1_lineup"], RelationshipTransform<Player>())
-			I_team2Lineup	<- (map["team1_lineup"], RelationshipTransform<Player>())
-			I_headToHead	<- (map["head_to_head"], RelationshipTransform<Player>())
-			I_teams			<- (map["teams"], RelationshipTransform<Team>())
-			I_winner		<- (map["winning_team_url"], RelationshipTransform<Team>())
+			I_players		<-- (map["players"], RelationshipTransform<Player>())
+			I_team1Lineup	<-- (map["team1_lineup"], RelationshipTransform<Player>())
+			I_team2Lineup	<-- (map["team1_lineup"], RelationshipTransform<Player>())
+			I_headToHead	<-- (map["head_to_head"], RelationshipTransform<Player>())
+			I_teams			<-- (map["teams"], RelationshipTransform<Team>())
+			I_winner		<-- (map["winning_team_url"], RelationshipTransform<Team>())
 		}
 	}
 	
@@ -308,9 +308,9 @@ class MappableTypesWithTransformsTests: XCTestCase {
 		required init?(map: Map) {}
 		
 		func mapping(map: Map) {
-			players		<- (map["players"], RelationshipTransform<Player>())
-			O_players	<- (map["players"], RelationshipTransform<Player>())
-			I_players	<- (map["players"], RelationshipTransform<Player>())
+			players		<-- (map["players"], RelationshipTransform<Player>())
+			O_players	<-- (map["players"], RelationshipTransform<Player>())
+			I_players	<-- (map["players"], RelationshipTransform<Player>())
 		}
 	}
 	

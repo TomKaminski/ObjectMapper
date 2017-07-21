@@ -42,7 +42,7 @@ struct TestMappable: Mappable, Equatable, Hashable {
 	init?(map: Map) {	}
 	
 	mutating func mapping(map: Map) {
-		value <- map["value"]
+		value <-- map["value"]
 	}
 	
 	var hashValue: Int {

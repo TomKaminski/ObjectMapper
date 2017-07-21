@@ -223,31 +223,31 @@ class Transforms: Mappable {
 	}
 	
 	func mapping(map: Map) {
-		date				<- (map["date"], DateTransform())
-		dateOpt				<- (map["dateOpt"], DateTransform())
+		date				<-- (map["date"], DateTransform())
+		dateOpt				<-- (map["dateOpt"], DateTransform())
 		
-		ISO8601Date			<- (map["ISO8601Date"], ISO8601DateTransform())
-		ISO8601DateOpt		<- (map["ISO8601DateOpt"], ISO8601DateTransform())
+		ISO8601Date			<-- (map["ISO8601Date"], ISO8601DateTransform())
+		ISO8601DateOpt		<-- (map["ISO8601DateOpt"], ISO8601DateTransform())
 		
-		customFormatDate	<- (map["customFormateDate"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss"))
-		customFormatDateOpt <- (map["customFormateDateOpt"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss"))
+		customFormatDate	<-- (map["customFormateDate"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss"))
+		customFormatDateOpt <-- (map["customFormateDateOpt"], CustomDateFormatTransform(formatString: "yyyy-MM-dd'T'HH:mm:ss"))
 
-		URL					<- (map["URL"], URLTransform())
-		URLOpt				<- (map["URLOpt"], URLTransform())
-		URLWithoutEncoding  <- (map["URLWithoutEncoding"], URLTransform(shouldEncodeURLString: false))
+		URL					<-- (map["URL"], URLTransform())
+		URLOpt				<-- (map["URLOpt"], URLTransform())
+		URLWithoutEncoding  <-- (map["URLWithoutEncoding"], URLTransform(shouldEncodeURLString: false))
 		
-		intWithString		<- (map["intWithString"], TransformOf<Int, String>(fromJSON: { $0 == nil ? nil : Int($0!) }, toJSON: { $0.map { String($0) } }))
-		int64Value			<- (map["int64Value"], TransformOf<Int64, NSNumber>(fromJSON: { $0?.int64Value }, toJSON: { $0.map { NSNumber(value: $0) } }))
+		intWithString		<-- (map["intWithString"], TransformOf<Int, String>(fromJSON: { $0 == nil ? nil : Int($0!) }, toJSON: { $0.map { String($0) } }))
+		int64Value			<-- (map["int64Value"], TransformOf<Int64, NSNumber>(fromJSON: { $0?.int64Value }, toJSON: { $0.map { NSNumber(value: $0) } }))
 		
-		firstImageType		<- (map["firstImageType"], EnumTransform<ImageType>())
-		secondImageType		<- (map["secondImageType"], EnumTransform<ImageType>())
+		firstImageType		<-- (map["firstImageType"], EnumTransform<ImageType>())
+		secondImageType		<-- (map["secondImageType"], EnumTransform<ImageType>())
 		
-		colorRed			<- (map["colorRed"], HexColorTransform())
-		colorGreenLowercase <- (map["colorGreenLowercase"], HexColorTransform())
-		colorBlueWithoutHash <- (map["colorBlueWithoutHash"], HexColorTransform(prefixToJSON: true))
-		color3lenght			<- (map["color3lenght"], HexColorTransform())
-		color4lenght			<- (map["color4lenght"], HexColorTransform())
-		color8lenght			<- (map["color8lenght"], HexColorTransform(alphaToJSON: true))
+		colorRed			<-- (map["colorRed"], HexColorTransform())
+		colorGreenLowercase <-- (map["colorGreenLowercase"], HexColorTransform())
+		colorBlueWithoutHash <-- (map["colorBlueWithoutHash"], HexColorTransform(prefixToJSON: true))
+		color3lenght			<-- (map["color3lenght"], HexColorTransform())
+		color4lenght			<-- (map["color4lenght"], HexColorTransform())
+		color8lenght			<-- (map["color8lenght"], HexColorTransform(alphaToJSON: true))
 	}
 }
 
